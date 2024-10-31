@@ -8,6 +8,7 @@ public class StatementGeneratorApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StatementGeneratorApplication.class, args);
+		
 	}
 
 }
