@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statement Generation Form</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="login-root">
+    <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh; flex-grow: 1">
+        <div class="loginbackground box-background--white padding-top--64">
+            <div class="loginbackground-gridContainer">
+                <div class="loginbackground box-background--white padding-top--64">
+                    <div class="loginbackground-gridContainer">
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: top / start / 8 / end"
+                        >
+                            <div
+                                    class="box-root"
+                                    style="
+                  background-image: linear-gradient(
+                    white 0%,
+                    rgb(247, 250, 252) 33%
+                  );
+                  flex-grow: 1;
+                "
+                            ></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 4 / 2 / auto / 5">
+                            <div
+                                    class="box-root box-divider--light-all-2 animationLeftRight tans3s"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: 6 / start / auto / 2"
+                        >
+                            <div
+                                    class="box-root box-background--blue800"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: 7 / start / auto / 4"
+                        >
+                            <div
+                                    class="box-root box-background--blue animationLeftRight"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div class="box-root flex-flex" style="grid-area: 8 / 4 / auto / 6">
+                            <div
+                                    class="box-root box-background--gray100 animationLeftRight tans3s"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: 2 / 15 / auto / end"
+                        >
+                            <div
+                                    class="box-root box-background--cyan200 animationRightLeft tans4s"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: 3 / 14 / auto / end"
+                        >
+                            <div
+                                    class="box-root box-background--blue animationRightLeft"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: 4 / 17 / auto / 20"
+                        >
+                            <div
+                                    class="box-root box-background--gray100 animationRightLeft tans4s"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                        <div
+                                class="box-root flex-flex"
+                                style="grid-area: 5 / 14 / auto / 17"
+                        >
+                            <div
+                                    class="box-root box-divider--light-all-2 animationRightLeft tans3s"
+                                    style="flex-grow: 1"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                        class="box-root padding-top--24 flex-flex flex-direction--column"
+                        style="flex-grow: 1; z-index: 9"
+                >
+            </div>
+        </div>
+        <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9">
+            <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+                <h1><a>Statement Generation Form</a></h1>
+            </div>
+            <div class="formbg-outer">
+                <div class="formbg">
+                    <div class="formbg-inner padding-horizontal--48">
+                        <form id="statementForm" name="statementForm" action="/submitForm" method="post" onsubmit="return validateForm()">
+                            <div id="MultiplePINs">
+                                <div class="field padding-bottom--24">
+                                    <label for="text">RSA PINs (Each pin on a new line)</label>
+                                    <textarea class="field" name="pin" placeholder="Enter multiple PINs here" rows="4" cols="50"></textarea>
+                                </div>
+                            </div>
+                            <div class="field padding-bottom--24">
+                                <div class="field-container">
+                                    <label for="password">Statement Type</label>
+                                    <div class="reset-pass">
+                                        <select name="StatementType">
+                                            <option value="Monthly">Monthly</option>
+                                            <option value="Quarterly">Quarterly</option>
+                                            <option value="Periodic">Periodic</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="field padding-bottom--24">
+                                <label for="date">Start Date</label>
+                                <input type="date" name="StartDate" placeholder="Start Date" min="2006-01-01" />
+                                <i class="fas fa-calendar-alt"></i>
+                                <label for="date">End Date</label>
+                                <input type="date" name="EndDate" placeholder="End Date" min="2006-01-01" />
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="field padding-bottom--24">
+                                <input type="submit" value="Generate" />
+                            </div>
+                        </form>
+                        <form id="uploadForm" name="uploadForm" action="/uploadForm" method="post" enctype="multipart/form-data">
+                            <div class="field padding-bottom--24">
+                                <label for="file">Upload CSV File</label>
+                                <input type="file" name="file" id="file" />
+                            </div>
+                            <div class="field padding-bottom--24">
+                                <input type="submit" value="Upload" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-link padding-top--24">
+                    <div class="listing padding-top--24 padding-bottom--24 flex-flex center-center">
+                        <!-- Footer elements -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        // Validation logic
+        return true;
+    }
+
+    $(document).ready(function() {
+        $('#statementForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: '/submitForm',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var message = 'Successful Pins: ' + response.successfulPins + '<br>' +
+                                  'Failed Pins: ' + response.failedPinsCount + '<br>' +
+                                  'Failed Pins List: ' + response.failedPins.join(', ');
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Upload Result',
+                        html: message
+                    });
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Upload Failed',
+                        text: 'An error occurred while uploading the file.'
+                    });
+                }
+            });
+        });
+
+        $('#uploadForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            var formData = new FormData(this);
+
+            $.ajax({
+                url: '/uploadForm',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var message = 'Successful Pins: ' + response.successfulPins + '<br>' +
+                                  'Failed Pins: ' + response.failedPinsCount + '<br>' +
+                                  'Failed Pins List: ' + response.failedPins.join(', ');
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Upload Result',
+                        html: message
+                    });
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Upload Failed',
+                        text: 'An error occurred while uploading the file.'
+                    });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
