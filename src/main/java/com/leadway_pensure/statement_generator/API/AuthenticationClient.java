@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class AuthenticationClient {
 
     private static final String AUTH_URL = "https://lpapp.leadway-pensure.com:8020/Auth";
-    private static final String API_KEY = "4DJQ05mayFOyGKrPVxHYSomkXaWq5jt2DGxYZqHkLBPEzUzYzTMpS0i59f9utbr4";
+    private static final String API_KEY = API_KEY;
     private static final String CONTENT_TYPE = "application/json";
 
     public boolean authenticate(String name, String password) {
